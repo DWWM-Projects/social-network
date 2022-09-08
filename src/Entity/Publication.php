@@ -21,7 +21,9 @@ class Publication
     private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'publication')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
 
     public function getId(): ?int
     {
@@ -63,4 +65,5 @@ class Publication
 
         return $this;
     }
+
 }

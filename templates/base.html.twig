@@ -15,6 +15,33 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+
+    {% block header %}
+        <div class="w-full flex justify-between items-center bg-blue-300 text-white p-6">
+            <div class="flex flex-row items-center">
+                <h1 class="text-5xl ml-6">My Social Network</h1>
+                <ul class="flex flex-row gap-6 text-3xl ml-6">
+                    <li class="hover:text-blue-900 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
+                        <a href="{{ path('app_home') }}">Publications</a>
+                    </li>
+                    <li class="hover:text-blue-900 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
+                        <a href="">Membres</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mr-6">
+                <ul class="flex flex-row gap-6 text-3xl">
+                    <li class="hover:text-blue-900 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
+                        <a href="">Inscription</a>
+                    </li>
+                    <li class="hover:text-blue-900 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
+                        <a href="">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
     <body>
         {% block body %}{% endblock %}
     </body>

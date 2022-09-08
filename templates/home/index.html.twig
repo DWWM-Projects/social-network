@@ -5,33 +5,40 @@
 {% block header %}{{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="flex flex-row justify-around">
 
-        <div class="w-1/5 flex flex-col p-2">
-            <div class="p-2">
+
+
+    <div class="flex flex-row gap-2 justify-around">
+
+        <div class="w-1/6 flex flex-col bg-blue-300 border rounded-lg mt-6 p-2">
+            <div class=" bg-blue-100 border rounded-lg p-2">
                 <p>Avatar</p>
             </div>
 
-            <div class="flex flex-col p-2">
+            <div class="flex flex-col bg-blue-100 border rounded-lg mt-6 p-2">
                 <p class="mt-4">Username</p>
                 <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ipsa odio dicta necessitatibus, perferendis facilis illum vel temporibus soluta expedita ut sapiente, molestias non cupiditate. Illo quis minima minus fugit.</p>
             </div>
         </div>
 
-        <div class="w-3/5 flex flex-col p-2">
+        <div class="w-5/6 flex flex-col bg-blue-300 rounded-lg mt-6 p-2">
 
-            <div class="w-full flex flex-row justify-between">
-                <div class="w-1/5 p-2">
-                    <p>Avatar</p>
-                </div>
-                <div class="w-4/5 flex flex-col">
-                    <div class="w-full flex flex-row justify-between items-center p-2">
-                        <p>Créateur</p>
-                        <p>Date création</p>
+            {% for publication in publications %}
+                <div class="w-full flex flex-row justify-between gap-2 bg-blue-300 mt-6">
+                    
+                    <div class="w-1/5 bg-blue-100 rounded-lg p-2">
+                        <p>Avatar</p>
                     </div>
-                    <p class="w-full text-center p-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam libero dolor distinctio, accusantium odit est minima! Debitis impedit nisi minus in eum! Quasi nulla porro earum aspernatur quia nam suscipit.</p>
+                    <div class="w-4/5 flex flex-col bg-blue-100 rounded-lg">
+                        <div class="w-full flex flex-row justify-between items-center p-2">
+                            <p class=" text-2xl bg-blue-100">{{ publication.user.pseudo }}</p>
+                            {# <p>{{ publication.createdAt }}</p> #}
+                        </div>
+                        <p class="w-full text-center bg-blue-100 rounded-lg mt-3 p-2">{{ publication.content }}</p>
+                    </div>
+                    
                 </div>
-            </div>
+            {% endfor %}
 
         </div>
     

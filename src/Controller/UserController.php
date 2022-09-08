@@ -18,4 +18,14 @@ class UserController extends AbstractController
             'users' => $users,
         ]);
     }
+
+    #[Route('/user/{id}', name: 'app_member')]
+    public function show(UserRepository $repository, $id)
+    {
+        $user = $repository->find($id);
+
+        return $this->render('user/member.html.twig', [
+            'user' => $user,
+        ]);
+    }
 }

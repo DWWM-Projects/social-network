@@ -24,9 +24,9 @@
                     <li class="hover:text-blue-900 rounded-lg p-2 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
                         <a class="" href="{{ path('app_home') }}">Publications</a>
                     </li>
-                    {# <li class="hover:text-blue-900 rounded-lg p-2 {{ app.request.get('_route') == 'app_home' ? 'active' }}">
-                        <a href="">Membres</a>
-                    </li> #}
+                    <li class="hover:text-blue-900 rounded-lg p-2 {{ app.request.get('_route') == 'app_user' ? 'active' }}">
+                        <a href="{{ path('app_user') }}">Membres</a>
+                    </li>
                 </ul>
             </div>
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,14 @@ class User
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Publication::class)]
+    private Collection $publication;
+
+    public function __construct()
+    {
+        $this->publication = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,36 @@ class User
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Publication>
+     */
+    public function getPublication(): Collection
+    {
+        return $this->publication;
+    }
+
+    public function addPublication(Publication $publication): self
+    {
+        if (!$this->publication->contains($publication)) {
+            $this->publication->add($publication);
+            $publication->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePublication(Publication $publication): self
+    {
+        if ($this->publication->removeElement($publication)) {
+            // set the owning side to null (unless already changed)
+            if ($publication->getUser() === $this) {
+                $publication->setUser(null);
+            }
+        }
 
         return $this;
     }

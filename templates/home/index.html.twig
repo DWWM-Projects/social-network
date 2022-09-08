@@ -24,7 +24,7 @@
         <div class="w-5/6 flex flex-col bg-blue-300 rounded-lg mt-6 p-2">
 
             {% for publication in publications %}
-                <div class="w-full flex flex-row justify-between gap-2 bg-blue-300 mt-6">
+                <a class="w-full flex flex-row justify-between gap-2 bg-blue-300 mt-6 cursor-pointer" href="{{ path('app_publication', { id: publication.id }) }}">
                     
                     <div class="w-1/5 bg-blue-100 rounded-lg p-2">
                         <p>Avatar</p>
@@ -37,7 +37,7 @@
                         <p class="w-full text-center bg-blue-100 rounded-lg mt-3 p-2">{{ publication.content }}</p>
                     </div>
                     
-                </div>
+                </a>
             {% endfor %}
 
         </div>

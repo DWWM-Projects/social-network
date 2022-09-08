@@ -5,5 +5,35 @@
 {% block header %}{{ parent() }}{% endblock %}
 
 {% block body %}
+    <div class="flex flex-row justify-around">
 
+        <div class="w-1/5 flex flex-col p-2">
+            <div class="p-2">
+                <p>Avatar</p>
+            </div>
+
+            <div class="flex flex-col p-2">
+                <p class="mt-4">Username</p>
+                <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ipsa odio dicta necessitatibus, perferendis facilis illum vel temporibus soluta expedita ut sapiente, molestias non cupiditate. Illo quis minima minus fugit.</p>
+            </div>
+        </div>
+
+        <div class="w-3/5 flex flex-col p-2">
+
+            <div class="w-full flex flex-row justify-between">
+                <div class="w-1/5 p-2">
+                    <p>Avatar</p>
+                </div>
+                <div class="w-4/5 flex flex-col">
+                    <div class="w-full flex flex-row justify-between items-center p-2">
+                        <p>Créateur</p>
+                        <p>Date création</p>
+                    </div>
+                    <p class="w-full text-center p-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam libero dolor distinctio, accusantium odit est minima! Debitis impedit nisi minus in eum! Quasi nulla porro earum aspernatur quia nam suscipit.</p>
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
 {% endblock %}

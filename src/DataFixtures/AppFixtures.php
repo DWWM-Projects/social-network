@@ -26,7 +26,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
             $user->setName($faker->name());
-            $user->setPseudo($faker->word());
+            $user->setPseudo(ucfirst($faker->userName()));
             $user->setEmail($faker->email());
             $user->setBiography($faker->text());
             $user->setBirthdate($faker->dateTimeBetween('-1 weeks', '-1 days'));

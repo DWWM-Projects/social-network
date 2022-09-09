@@ -5,37 +5,56 @@
 {% block header %} {{ parent() }} {% endblock %}
 
 {% block body %}
-    <div class="w-4/5 mx-auto flex flex-row gap-2 bg-blue-300 border rounded-lg mt-6 p-2">
-        <div class="w-1/6 rounded-lg bg-blue-100 p-2">
-            <p>Avatar</p>
-        </div>
+    <div class="flex flex-row gap-2 justify-around">
+        {% if app.user %}        
+            <div class="w-1/6 flex flex-col bg-blue-300 border rounded-lg mt-6 p-2">
+                <div class=" bg-blue-100 border rounded-lg p-2">
+                    <p>Avatar</p>
+                </div>
 
-        <div class="w-5/6 flex flex-col rounded-lg bg-blue-100 p-2">
-            <p>Pseudo: {{ user.pseudo }}</p>
-            <p class="w-full mt-2">Biographie: {{ user.biography }}</p>
-        </div>
+                <div class="flex flex-col bg-blue-100 border rounded-lg mt-6 p-2">
+                    <p class="mt-4">{{ app.user.pseudo }}</p>
+                    <p class="mt-4">{{ app.user.biography }}</p>
+                </div>
+            </div>
+        {% endif %}
 
-    </div>
-
-    <div class="w-4/6 mx-auto flex flex-col gap-2 bg-blue-100 rounded-lg mt-6 p-2">
-
-        {% for publication in user.publication %}
-            
-        
-            <div class="w-full flex flex-row gap-2 bg-blue-300 border rounded-lg mt-3 p-2">
+        <div class="w-5/6 flex flex-col bg-blue-100 rounded-lg mt-6 p-2">
+            <div class="w-full mx-auto flex flex-row gap-2 bg-blue-300 rounded-lg mt-6 p-2">
                 <div class="w-1/6 rounded-lg bg-blue-100 p-2">
                     <p>Avatar</p>
                 </div>
 
                 <div class="w-5/6 flex flex-col rounded-lg bg-blue-100 p-2">
                     <p>Pseudo: {{ user.pseudo }}</p>
-                    <p class="w-full mt-2">{{ publication.content }}</p>
+                    <p class="w-full mt-2">Biographie: {{ user.biography }}</p>
                 </div>
 
             </div>
 
-        {% endfor %}
+            <div class="w-4/6 mx-auto flex flex-col gap-2 bg-blue-100 rounded-lg mt-6 p-2">
+
+                {% for publication in user.publication %}
+                    
+                
+                    <div class="w-full flex flex-row gap-2 bg-blue-300 border rounded-lg mt-3 p-2">
+                        <div class="w-1/6 rounded-lg bg-blue-100 p-2">
+                            <p>Avatar</p>
+                        </div>
+
+                        <div class="w-5/6 flex flex-col rounded-lg bg-blue-100 p-2">
+                            <p>Pseudo: {{ user.pseudo }}</p>
+                            <p class="w-full mt-2">{{ publication.content }}</p>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+                
+
+            </div>
         
+        </div>
 
     </div>
 

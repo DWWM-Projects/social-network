@@ -12,7 +12,9 @@
         {% if app.user %}        
             <div class="w-1/6 flex flex-col bg-blue-300 border rounded-lg mt-6 p-2">
                 <div class=" bg-blue-100 border rounded-lg p-2">
-                    <p>Avatar</p>
+                    {% if app.user.avatar == null %}
+                        <img src="/img/avatar.png">
+                    {% endif %}
                 </div>
 
                 <div class="flex flex-col bg-blue-100 border rounded-lg mt-6 p-2">
@@ -28,7 +30,9 @@
                 <a class="w-full flex flex-row justify-between gap-2 bg-blue-300 mt-6 cursor-pointer" href="{{ path('app_publication', { id: publication.id }) }}">
                     
                     <div class="w-1/5 bg-blue-100 rounded-lg p-2">
-                        <p>Avatar</p>
+                        {% if publication.user.avatar == null %}
+                            <img src="/img/avatar.png">
+                        {% endif %}
                     </div>
                     <div class="w-4/5 flex flex-col bg-blue-100 rounded-lg">
                         <div class="w-full flex flex-row justify-between items-center p-2">

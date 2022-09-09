@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
             $user->setPseudo(ucfirst($faker->userName()));
             $user->setEmail($faker->email());
             $user->setBiography($faker->text());
-            $user->setBirthdate($faker->dateTimeBetween('-1 weeks', '-1 days'));
+            $user->setBirthdate($faker->dateTimeBetween('-30 years', '-18 years'));
             $user->setPassword($this->hasher->hashPassword($user, 'password'));
             $manager->persist($user);
             $this->addReference('user-'.$i, $user);
@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
         for ($i = 0; $i <= 40; $i++) {
             $publication = new Publication();
             $publication->setContent($faker->text());
-            $publication->setCreatedAt($faker->dateTimeBetween('-1 days', '-1hours'));
+            $publication->setCreatedAt($faker->dateTimeBetween('-1 weeks', '-1hours'));
             $publication->setUser($this->getReference('user-'.rand(1, 10)));
             $manager->persist($publication);
         }

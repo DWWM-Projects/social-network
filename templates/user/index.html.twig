@@ -12,7 +12,9 @@
         {% if app.user %}        
             <div class="w-1/6 flex flex-col bg-blue-300 border rounded-lg mt-6 p-2">
                 <div class=" bg-blue-100 border rounded-lg p-2">
-                    <p>Avatar</p>
+                    {% if app.user.avatar == null %}
+                        <img src="/img/avatar.png">
+                    {% endif %}
                 </div>
 
                 <div class="flex flex-col bg-blue-100 border rounded-lg mt-6 p-2">
@@ -26,7 +28,9 @@
             {% for user in users %}
                 <a class="w-full flex flex-row gap-2 bg-blue-300 border rounded-lg mt-6 p-2 cursor-pointer" href="{{ path('app_member', { id: user.id }) }}">
                     <div class="w-1/6 rounded-lg bg-blue-100 p-2">
-                        <p>Avatar</p>
+                        {% if user.avatar == null %}
+                        <img src="/img/avatar.png">
+                    {% endif %}
                     </div>
 
                     <div class="w-5/6 flex flex-col rounded-lg bg-blue-100 p-2">
